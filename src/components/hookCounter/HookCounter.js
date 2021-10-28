@@ -1,15 +1,7 @@
 import React from 'react'
+import {useCounter} from "../../hooks/useCounter";
 
 export const HookCounter = ()=>{
-    const [count, setCount] = React.useState(0);
-
-    const increment = ()=>{
-        setCount(count + 1)
-    }
-
-    const decrement = ()=>{
-        setCount(count - 1)
-    }
 
     return (
         <>
