@@ -1,6 +1,6 @@
 import React from 'react'
 import {Counter} from "../Counter";
-import {render} from '@testing-library/react'
+import {render, fireEvent} from '@testing-library/react'
 import "@testing-library/jest-dom"
 
 test("Header renders correctly", ()=>{
@@ -31,4 +31,13 @@ test("subtract button renders with -", ()=>{
     const {getByTestId} = render(<Counter />)
     const minusButton = getByTestId("minus-btn")
     expect(minusButton.textContent).toBe("-")
+})
+
+it("Change of Input works correctly.", ()=>{
+    const {getByTestId} =  render(<Counter />)
+    const inputEl = getByTestId("input")
+
+    fireEvent.change(inputEl, {target:{value: "5"}})
+
+    expect(inputEl.value).toBe("5")
 })
