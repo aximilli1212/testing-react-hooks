@@ -10,8 +10,11 @@ export const Counter = ()=>{
             <h1 data-testid="header">My Counter</h1>
             <h1 data-testid="counter">{counterValue}</h1>
             <button data-testid="minus-btn">-</button>
-            <input data-testid="input" value={inputValue}  />
-            <button data-testid="add-btn">+</button>
+            <input
+                data-testid="input"
+                onChange={(e)=>setInputValue(e.target.value)} />
+                value={inputValue}
+            <button data-testid="add-btn" onClick={setCounter()}>+</button>
         </div>
     )
 }

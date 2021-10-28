@@ -18,7 +18,7 @@ test("counter initially starts with 0", ()=>{
 test("Initial for  value in counter input to be 1", ()=>{
     const {getByTestId} = render(<Counter />)
     const inputEl = getByTestId("input")
-    expect(inputEl.value).toBe(1)
+    expect(inputEl.value).toBe("1")
 })
 
 test("Add button renders with +", ()=>{
@@ -40,4 +40,18 @@ it("Change of Input works correctly.", ()=>{
     fireEvent.change(inputEl, {target:{value: "5"}})
 
     expect(inputEl.value).toBe("5")
+})
+
+
+test("Click on plus btn add 1 to the counter", ()=>{
+    const {getByTestId} = render(<Counter />)
+    const btnEl = getByTestId("add-btn")
+    const counterEl = getByTestId("counter")
+
+    expect(counterEl.textContent).toBe("0")
+
+    fireEvent.click(btnEl)
+
+    expect(counterEl.textContent).toBe("1")
+
 })
