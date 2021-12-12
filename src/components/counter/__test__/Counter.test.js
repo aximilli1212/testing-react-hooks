@@ -45,12 +45,39 @@ it("Change of Input works correctly.", ()=>{
 
 test("Click on plus btn add 1 to the counter", ()=>{
     const {getByTestId} = render(<Counter />)
-    const btnEl = getByTestId("add-btn")
+    const addBtnEl = getByTestId("add-btn")
     const counterEl = getByTestId("counter")
 
     expect(counterEl.textContent).toBe("0")
 
-    fireEvent.click(btnEl)
+    fireEvent.click(addBtnEl)
+
+    expect(counterEl.textContent).toBe("1")
+
+})
+
+test("Click on minus btn add 1 to the counter", ()=>{
+    const {getByTestId} = render(<Counter />)
+    const minusBtnEl = getByTestId("minus-btn")
+    const counterEl = getByTestId("counter")
+
+    expect(counterEl.textContent).toBe("0")
+
+    fireEvent.click(minusBtnEl)
+
+    expect(counterEl.textContent).toBe("1")
+
+})
+
+test("Change input value and Click on Add Btn works correctly", ()=>{
+    const {getByTestId} = render(<Counter />)
+    const addBtnEl = getByTestId("add-btn")
+    const counterEl = getByTestId("counter")
+    const inputEl = getByTestId("input")
+
+    fireEvent.change(inputEl, {target:{value: "5"}})
+
+    fireEvent.click(addBtnEl)
 
     expect(counterEl.textContent).toBe("1")
 
