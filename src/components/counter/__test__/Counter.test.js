@@ -20,3 +20,15 @@ test("Initial for  value in counter input to be 1", ()=>{
     const inputEl = getByTestId("input")
     expect(inputEl.value).toBe(1)
 })
+
+test("Add button renders with +", ()=>{
+    const {getByTestId} = render(<Counter />)
+    const addButton = getByTestId("add-btn")
+    expect(addButton.textContent).toBe("+")
+})
+
+test("subtract button renders with -", ()=>{
+    const {getByTestId} = render(<Counter />)
+    const minusButton = getByTestId("minus-btn")
+    expect(minusButton.textContent).toBe("-")
+})
