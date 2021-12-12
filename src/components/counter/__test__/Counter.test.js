@@ -74,11 +74,8 @@ test("Change input value and Click on Add Btn works correctly", ()=>{
     const addBtnEl = getByTestId("add-btn")
     const counterEl = getByTestId("counter")
     const inputEl = getByTestId("input")
-
     fireEvent.change(inputEl, {target:{value: "5"}})
-
     fireEvent.click(addBtnEl)
-
     expect(counterEl.textContent).toBe("1")
 
 })
