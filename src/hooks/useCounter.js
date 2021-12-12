@@ -13,4 +13,6 @@ export const useCounter = ()=>{
         setCount(count - 1)
     }
 
+    return {count , increment, decrement}
+
 }
